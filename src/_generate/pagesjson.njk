@@ -7,5 +7,5 @@ eleventyExcludeFromCollections: true
 	{
    "title":"{% if pages.data.title %}{{ pages.data.title | jsonTitle}}{% else %}{{ meta.siteName }}{% endif %}",
    "slug":"{% if pages.data.title %}{{ pages.data.title | slug}}{% else %}home{% endif %}"
-	}{% if forloop.last == false %},{% endif %}
+	}{% if loop.last == false %},{% endif %}
 {% endfor %}]
