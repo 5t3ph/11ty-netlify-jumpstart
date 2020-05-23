@@ -74,9 +74,10 @@ code:not([class*="language"]) {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   border: 1px solid scale-color(tdbc-color(gray), $lightness: 50%);
   border-radius: 2px;
-  font-size: 0.85em;
+  font-size: 0.75em;
   max-width: 100%;
   overflow-x: scroll;
+  vertical-align: sub;
 }
 
 blockquote {
