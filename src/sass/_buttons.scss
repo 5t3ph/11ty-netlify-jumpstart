@@ -17,8 +17,13 @@
   cursor: pointer;
   vertical-align: middle;
 
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentColor;
+  }
+
   &:focus {
-    outline: none;
+    outline-color: transparent;
+    outline-style: solid;
     box-shadow: 0 0 0 3px scale-color(tdbc-color(primary), $lightness: -30%);
   }
 
