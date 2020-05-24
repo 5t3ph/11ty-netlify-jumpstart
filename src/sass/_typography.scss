@@ -12,11 +12,13 @@ $tdbc-typography-variants: h1, h2, h3, h4;
 h1,
 .tdbc-h1 {
   font-size: $tdbc-h1-font-size;
+  font-size: unquote("min(max(3rem, 5vw), #{$tdbc-h1-font-size})");
 }
 
 h2,
 .tdbc-h2 {
   font-size: $tdbc-h2-font-size;
+  font-size: unquote("min(max(2.5rem, 5vw), #{$tdbc-h2-font-size})");
 }
 
 h3,
@@ -68,16 +70,21 @@ a:not(.tdbc-button) {
 
 code:not([class*="language"]) {
   display: inline-block;
-  padding: 0 0.15em;
+  padding: 0.15em;
   background-color: tdbc-color(light);
   color: tdbc-color(gray);
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   border: 1px solid scale-color(tdbc-color(gray), $lightness: 50%);
   border-radius: 2px;
   font-size: 0.75em;
-  max-width: 100%;
   overflow-x: scroll;
-  vertical-align: sub;
+  line-height: 1.1;
+  margin-bottom: -0.3em;
+}
+
+pre code:not([class*="language"]) {
+  width: 100%;
+  max-width: calc(100vw - 2rem);
 }
 
 blockquote {
