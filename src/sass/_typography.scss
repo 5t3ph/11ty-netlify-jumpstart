@@ -69,7 +69,7 @@ a:not(.tdbc-button) {
 }
 
 code:not([class*="language"]) {
-  display: inline-block;
+  display: inline-flex;
   padding: 0.15em;
   background-color: tdbc-color(light);
   color: tdbc-color(gray);
@@ -77,14 +77,13 @@ code:not([class*="language"]) {
   border: 1px solid scale-color(tdbc-color(gray), $lightness: 50%);
   border-radius: 2px;
   font-size: 0.75em;
-  overflow-x: scroll;
   line-height: 1.1;
-  margin-bottom: -0.3em;
 }
 
 pre code:not([class*="language"]) {
   width: 100%;
   max-width: calc(100vw - 2rem);
+  overflow-x: auto;
 }
 
 blockquote {

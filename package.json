@@ -1,6 +1,6 @@
 {
   "name": "11ty-netlify-jumpstart",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "build": "ELEVENTY_ENV=prod npm run scss ; eleventy ; npm run css ; npm run screenshot",
     "lint": "stylelint 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
-    "screenshot": "node functions/images.js"
+    "screenshot": "node functions/images.js",
+    "bump": "npm --no-git-tag-version version"
   },
   "repository": {
     "type": "git",
