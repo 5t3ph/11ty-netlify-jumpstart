@@ -2,7 +2,7 @@
 
 > Created by Stephanie Eckles ([@5t3ph](https://twitter.com/5t3ph))
 
-Visit [11ty-netlify-jumpstart.netlify.app](11ty-netlify-jumpstart.netlify.app) for all the feature details - or go ahead and [generate a new repo from the template](https://github.com/5t3ph/11ty-netlify-jumpstart/generate) to view the information locally.
+Visit [11ty-netlify-jumpstart.netlify.app](https://11ty-netlify-jumpstart.netlify.app/) for all the feature details - or go ahead and [generate a new repo from the template](https://github.com/5t3ph/11ty-netlify-jumpstart/generate) to view the information locally.
 
 ## Quick Start
 
