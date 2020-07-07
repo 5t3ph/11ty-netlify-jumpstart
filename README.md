@@ -13,8 +13,9 @@ Visit [11ty-netlify-jumpstart.netlify.app](https://11ty-netlify-jumpstart.netlif
    mode. Use `npm run build` to run a production version, which will also generate social share
    preview images.
 
-1. Open `src/_data/meta.js` and adjust the values to your details. 1. Review the
-   [styling documentation](https://5t3ph.github.io/html-sass-jumpstart/) for the included minimal
+1. Open `src/_data/meta.js` and adjust the values to your details.
+
+1. Review the [styling documentation](https://5t3ph.github.io/html-sass-jumpstart/) for the included minimal
    Sass framework, particularly the theme variables, to quickly customize the starter.
 
 1. Edit `_includes/home.njk` to change the home page - including changing the template type if desired -
