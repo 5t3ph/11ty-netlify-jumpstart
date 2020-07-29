@@ -1,6 +1,6 @@
 {
   "name": "11ty-netlify-jumpstart",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "css": "postcss src/css/*.css -u autoprefixer cssnano -r -m",
     "watch:eleventy": "eleventy --serve",
     "watch:sass": "node-sass --watch src/sass -o src/css",
-    "develop": "npm run scss ; npm run watch:sass & ELEVENTY_ENV=dev npm run watch:eleventy",
+    "develop": "npm run scss ; ELEVENTY_ENV=dev npm run watch:eleventy & npm run watch:sass",
     "build": "npm run scss ; ELEVENTY_ENV=prod eleventy ; npm run css ; npm run screenshot",
     "lint": "stylelint 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
@@ -27,9 +27,9 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
-    "autoprefixer": "^9.8.4",
+    "autoprefixer": "^9.8.5",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
     "emoji-regex": "^9.0.0",
