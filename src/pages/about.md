@@ -11,7 +11,7 @@ This jumpstart is intended to be _just enough_ to be a functional site/blog usin
 
 ### Colophon
 
-Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Github](https://github.com/5t3ph), [CodePen](https://codepen.com/5t3ph), and [DEV](https://dev.to/5t3ph). You may know me as the author of [ModernCSS.dev](https://moderncss.dev). I can also be found on [egghead as an instructor](https://egghead.io/instructors/stephanie-eckles).
+Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Github](https://github.com/5t3ph), [CodePen](https://codepen.com/5t3ph), and [DEV](https://dev.to/5t3ph). You may know me as the author of [ModernCSS.dev](https://moderncss.dev) or the creator of [StyleStage.dev](https://stylestage.dev). I can also be found on [egghead as an instructor](https://egghead.io/instructors/stephanie-eckles?af=2s65ms).
 
 I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to JAMstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
 
@@ -53,11 +53,11 @@ The `URL` value is then available via the global data described previously, and 
 
 ## Template Languages Used
 
-Page templates are created as Nunjuck (.njk), and feature are added that expect Markdown for most page content.
+Page templates are created as Nunjucks (.njk), and feature are added that expect Markdown for most page content.
 
-The home page - `_includes/home.njk` - is set to process first as Markdown followed by Nunjuck. This allows mixing HTML with Markdown, with benefits being code syntax highlighting and ability to include classes on HTML elements. This functionality is provided by the `templateEngineOverride: md, njk` in the frontmatter.
+The home page - `_includes/home.njk` - is set to process first as Markdown followed by Nunjucks. This allows mixing HTML with Markdown, with benefits being code syntax highlighting and ability to include classes on HTML elements. This functionality is provided by the `templateEngineOverride: md, njk` in the frontmatter.
 
-A unique case uses Nunjuck to create the `json` that is used to generate the [social share preview images](#social-share-preview-images).
+A unique case uses Nunjucks to create the `json` that is used to generate the [social share preview images](#social-share-preview-images).
 
 Review the list of [available templating languages](https://www.11ty.dev/docs/languages/) in the 11ty docs.
 
@@ -167,7 +167,7 @@ Syntax highlighting of inline or code blocks found within Markdown content is pr
 
 You can change the theme used in `sass/_prism.scss`.
 
-Or, remove teh plugin if you are not in need of code highlighting.
+Or, remove the plugin if you are not in need of code highlighting.
 
 ## .eleventy.js Config Features
 
@@ -200,7 +200,7 @@ Used in `_generate/pagesjson.liquid` to ensure titles are escaped, and also appl
 
 If you haven't previously worked with Nunjucks, you will want a syntax highlighting extension: [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 
-In addition, you may want to ensure Emmet works on `.njk` files by updating/adding the following in the `settigs.json`:
+In addition, you may want to ensure Emmet works on `.njk` files by updating/adding the following in the `settings.json`:
 
 ```json
 "emmet.includeLanguages": {
@@ -213,8 +213,6 @@ In addition, you may want to ensure Emmet works on `.njk` files by updating/addi
 As noted previously, a `prettier` config is included, and you may want to get the
 Prettier extension and update your VSCode settings to "Format on Save".
 
-However, to format template files Prettier doesn't recognize like `.njk`, you can update the "Language Mode" on the currently open file fron "Nunjuck" (or other current templating language) to "HTML" to allow formatting to be
-applied. Then, flip it back to re-allow the syntax highlighting if needed.
+However, to format template files Prettier doesn't recognize like `.njk`, you can update the "Language Mode" on the currently open file from "Nunjucks" (or other current templating language) to "HTML" to allow formatting to be applied. Then, flip it back to re-allow the syntax highlighting if needed.
 
-This is located in the VSCode bottom toolbar near the right-hand side and will display the value of the current file's
-detected language. Click the name to open the selector.
+This is located in the VSCode bottom toolbar near the right-hand side and will display the value of the current file's detected language. Click the name to open the selector.

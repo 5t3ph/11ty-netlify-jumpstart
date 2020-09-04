@@ -1,6 +1,6 @@
 {
   "name": "11ty-netlify-jumpstart",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,9 @@
     "css": "postcss src/css/*.css -u autoprefixer cssnano -r -m",
     "watch:eleventy": "eleventy --serve",
     "watch:sass": "node-sass --watch src/sass -o src/css",
-    "develop": "npm run scss ; ELEVENTY_ENV=dev npm run watch:eleventy & npm run watch:sass",
-    "build": "npm run scss ; ELEVENTY_ENV=prod eleventy ; npm run css ; npm run screenshot",
+    "develop": "ELEVENTY_ENV=dev npm-run-all scss --parallel watch:eleventy watch:sass",
+    "build": "ELEVENTY_ENV=prod npm-run-all scss --parallel build:eleventy css screenshot",
+    "build:eleventy": "eleventy",
     "lint": "stylelint 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
     "screenshot": "node functions/images.js",
@@ -29,17 +30,18 @@
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
     "emoji-regex": "^9.0.0",
-    "luxon": "^1.23.0",
+    "luxon": "^1.25.0",
     "markdown-it": "^11.0.0",
     "markdown-it-anchor": "^5.2.7",
     "node-sass": "^4.11.0",
-    "postcss-cli": "^7.1.0",
-    "puppeteer": "3.1.0",
-    "stylelint": "^13.6.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.2",
+    "puppeteer": "5.2.1",
+    "stylelint": "^13.7.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
@@ -50,7 +52,7 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "chrome-aws-lambda": "3.1.1",
-    "puppeteer-core": "3.1.0"
+    "chrome-aws-lambda": "5.2.1",
+    "puppeteer-core": "5.2.1"
   }
 }
