@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+{%- set pageTitle %}{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
+{%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}{% endset -%}
+{%- set pageSocialImg %}{{ meta.url }}/previews/{{ title | slug }}.png{% endset -%}
   <head>
     <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}</title>
+    <title>{{pageTitle}}</title>
     <meta
       name="description"
-      content="{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}"
+      content="{{pageDescription}}"
     />
     <link rel="icon" href="{{ '/favicon.png' | url }}" />
     <link href="{{ '/css/style.css' | url }}" rel="stylesheet" />
@@ -17,23 +20,23 @@
     {% endif %}
     <meta
       name="twitter:title"
-      content="{% if title %}{{ title }}{% else %}{{ meta.siteName }}{% endif %}"
+      content="{{pageTitle}}"
     />
     <meta
       name="twitter:description"
-      content="{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}"
+      content="{{pageDescription}}"
     />
 
     <meta
       name="og:title"
-      content="{% if title %}{{ title }}{% else %}{{ meta.siteName }}{% endif %}"
+      content="{{pageTitle}}"
     />
     <meta
       name="og:description"
-      content="{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}"
+      content="{{pageDescription}}"
     />
-    <meta property="og:image" content="{{ meta.url }}/previews/{{ title | slug }}.png" />
-    <meta name="twitter:image" content="{{ meta.url }}/previews/{{ title | slug }}.png" />
+    <meta property="og:image" content="{{pageSocialImg}}" />
+    <meta name="twitter:image" content="{{pageSocialImg}}" />
 
     <link
       rel="alternate"
