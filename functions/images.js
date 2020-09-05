@@ -44,6 +44,17 @@ const path = require("path");
     await page.evaluate((post) => {
       const title = document.querySelector("h1");
       title.innerHTML = post.title;
+
+      const subtitle = document.querySelector("h2");
+      const byline = document.querySelector("p");
+
+      if (post.slug === "home") {
+        subtitle.removeAttribute("hidden");
+        byline.setAttribute("hidden", "true");
+      } else {
+        subtitle.setAttribute("hidden", "true");
+        byline.removeAttribute("hidden");
+      }
     }, post);
 
     console.log(`Image: ${post.slug}.png`);
