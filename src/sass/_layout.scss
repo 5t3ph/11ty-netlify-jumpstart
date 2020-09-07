@@ -3,7 +3,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: tdbc-color(background);
+  background-color: tdbc-color("background");
   color: $tdbc-color-body;
   font-family: $tdbc-font-family;
 }
@@ -22,7 +22,7 @@ footer {
 article {
   max-width: 80ch;
 
-  img {
+  > img {
     margin-right: auto;
     margin-left: auto;
   }
@@ -67,7 +67,7 @@ ul.tdbc-column-container {
 .tdbc-hero {
   display: grid;
   min-height: 40vh;
-  place-items: center;
+  place-content: center;
   padding-top: 10vh;
   padding-bottom: 10vh;
   text-align: center;
@@ -95,5 +95,5 @@ ul.tdbc-column-container {
 hr {
   margin-top: 4rem;
   margin-bottom: 4rem;
-  border: 1px solid tdbc-color(secondary);
+  border: 1px solid tdbc-color("secondary");
 }
