@@ -6,7 +6,7 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: tdbc-color(gray);
+  color: tdbc-color("gray");
   background: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
@@ -30,7 +30,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: tdbc-color(light);
+  background: tdbc-color("light");
 }
 
 /* Inline code */
@@ -48,7 +48,7 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-  color: tdbc-color(gray);
+  color: tdbc-color("gray");
 }
 
 .token.property,

@@ -31,7 +31,7 @@
       outline: none;
 
       &::before {
-        box-shadow: 0 0 0 3px tdbc-color(primary);
+        box-shadow: 0 0 0 3px tdbc-color("primary");
       }
     }
   }
@@ -65,7 +65,7 @@
   }
 
   &:hover a.tdbc-card__title::before {
-    box-shadow: 0 0 0 3px tdbc-color(primary);
+    box-shadow: 0 0 0 3px tdbc-color("primary");
   }
 
   img:first-child {

@@ -24,7 +24,7 @@
 // stylelint-disable
 
 body {
-  border: 3px solid tdbc-color(secondary);
+  border: 3px solid tdbc-color("secondary");
   display: grid;
   place-content: center;
   text-align: center;

@@ -9,7 +9,7 @@ Visit [11ty-netlify-jumpstart.netlify.app](https://11ty-netlify-jumpstart.netlif
 1. [Generate a repo from this template](https://github.com/5t3ph/11ty-netlify-jumpstart/generate)
    which will copy this project into your own new repo.
 
-1. Once cloned, run `npm install` to install 11ty and other dependencies. Then run `npm run develop` to run both 11ty and node-sass in watch
+1. Once cloned, run `npm install` to install 11ty and other dependencies. Then run `npm start` to run both 11ty and sass in watch
    mode. Use `npm run build` to run a production version, which will also generate social share
    preview images.
 
@@ -33,7 +33,7 @@ against.
 
 ## Development Scripts
 
-**`npm run develop`**
+**`npm start`**
 
 > Run 11ty with hot reload at localhost:8080
 
