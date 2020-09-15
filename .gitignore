@@ -15,3 +15,5 @@ src/previews/*
 # macOS related files
 .DS_Store
 
+#IDE
+.idea
