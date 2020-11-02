@@ -1,19 +1,21 @@
 {
   "name": "11ty-netlify-jumpstart",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "sass src/sass:src/css",
-    "css": "postcss src/css/*.css -u autoprefixer cssnano -r -m",
+    "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
     "watch:eleventy": "eleventy --serve",
-    "watch:sass": "sass --watch src/sass:src/css",
-    "start": "cross-env ELEVENTY_ENV=dev npm-run-all scss --parallel watch:*",
-    "build": "cross-env ELEVENTY_ENV=prod npm-run-all scss --parallel build:eleventy css screenshot",
+    "build:sass-site": "sass  --no-source-map src/sass/style.scss public/css/style.css",
+    "build:sass-social": "sass  --no-source-map src/sass/social.scss social/style.css",
+    "build:sass": "npm-run-all --parallel build:sass-site",
     "build:eleventy": "eleventy",
+    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r",
+    "start": "cross-env ELEVENTY_ENV=dev npm-run-all build:sass --parallel watch:*",
+    "build": "cross-env ELEVENTY_ENV=prod npm-run-all build:sass build:eleventy social-images",
     "lint": "stylelint 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
     "lint:fix": "stylelint --fix 'src/sass/**/*.scss' 'src/sass/**/**/*.scss' 'src/sass/**/**/**/*.scss'",
-    "screenshot": "node functions/images.js",
+    "social-images": "eleventy-social-images --outputDir public --dataFile social/pages.json --templatePath social/template.html",
     "bump": "npm --no-git-tag-version version"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@11tyrocks/eleventy-plugin-social-images": "^0.1.1",
     "autoprefixer": "^9.8.6",
     "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
@@ -40,7 +43,6 @@
     "markdown-it-anchor": "^5.2.7",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.2",
-    "puppeteer": "5.2.1",
     "sass": "^1.26.10",
     "stylelint": "^13.7.0",
     "stylelint-config-prettier": "^8.0.2",
@@ -51,9 +53,5 @@
   },
   "browserslist": [
     "last 2 versions"
-  ],
-  "dependencies": {
-    "chrome-aws-lambda": "5.2.1",
-    "puppeteer-core": "5.2.1"
-  }
+  ]
 }

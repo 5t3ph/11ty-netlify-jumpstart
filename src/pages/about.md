@@ -13,7 +13,9 @@ This jumpstart is intended to be _just enough_ to be a functional site/blog usin
 
 Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Github](https://github.com/5t3ph), [CodePen](https://codepen.com/5t3ph), and [DEV](https://dev.to/5t3ph). You may know me as the author of [ModernCSS.dev](https://moderncss.dev) or the creator of [StyleStage.dev](https://stylestage.dev). I can also be found on [egghead as an instructor](https://egghead.io/instructors/stephanie-eckles?af=2s65ms).
 
-I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to JAMstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
+> Check out my extended collection of Eleventy resources available on [11ty.Rocks](https://11ty.rocks)!
+
+I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to Jamstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
 
 ### Jump to:
 
@@ -145,21 +147,30 @@ Here's an example of the default template:
 
 ![default social share preview image template](/previews/hello-world.png)
 
-For technical details on how this is generated, [review my article on DEV](https://dev.to/5t3ph/automated-social-sharing-images-with-puppeteer-11ty-and-netlify-22ln).
+As of v0.5.0, these images now use my Eleventy plugin - `@11tyrocks/eleventy-plugin-social-images` - with the default blue theme and a customized template.
 
 Any changes made can be previewed by running the build command and reviewing the contents of `public/previews/`.
 
+[Review the plugin docs](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images) for the full details of how to customize the behavior, and read on to learn how this starter is currently setup for the social images.
+
 #### Update template HTML
 
-HTML can be changed in `_generate/social-previews.njk`
+HTML can be changed in `_generate/socialtemplate.njk` - be sure to leave the `<style>` block and the template tag within so that the plugin can insert your styles.
+
+The only requirement for the generator to work is to keep an `<h1>` to populate with the content title, but the rest of the template is up to you!
 
 #### Update template style
 
-An isolated, slimmed down stylesheet is created for the template: `sass/social-previews.scss`
+There are two options:
+
+1. Select a different theme to use from the plugin's [predefined theme options](https://github.com/5t3ph/eleventy-plugin-social-images/tree/main/themes) and amend the `social-images` script to set the `--theme` option
+2. Create a custom stylesheet (such as social.scss) and add the included `build:sass-social` script at the end of the `build:sass` command
+
+If choosing to create your own styles for option #2, the CSS will be output in `social/style.css` with provided stubbed out script. You will need to add this as the value for the `--stylesPath` option within the `social-images` script to ensure your custom styles are used.
 
 #### Change included pages OR available data
 
-Adjust the collections loop in `_generate/pagesjson.liquid`
+Adjust the collections loop in `_generate/pagesjson.njk`, but keep the defined keys of `title` and `imgName`.
 
 ## Prism Syntax Highlighting
 
@@ -189,10 +200,6 @@ Extends the default slug function to also:
 
 - remove emojis
 - expand list of characters to remove
-
-### Filter: `jsonTitle`
-
-Used in `_generate/pagesjson.liquid` to ensure titles are escaped, and also applies non-breaking spaces to the last three words to prevent orphans in preview images.
 
 ## VSCode Tips
 

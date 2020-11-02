@@ -104,6 +104,10 @@ blockquote {
   + * {
     margin-top: 3rem;
   }
+
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .tdbc-lead {
