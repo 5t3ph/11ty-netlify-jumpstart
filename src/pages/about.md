@@ -145,21 +145,30 @@ Here's an example of the default template:
 
 ![default social share preview image template](/previews/hello-world.png)
 
-For technical details on how this is generated, [review my article on DEV](https://dev.to/5t3ph/automated-social-sharing-images-with-puppeteer-11ty-and-netlify-22ln).
+As of v0.5.0, these images now use my Eleventy plugin - `@11tyrocks/eleventy-plugin-social-images` - with the default blue theme and a customized template.
 
 Any changes made can be previewed by running the build command and reviewing the contents of `public/previews/`.
 
+[Review the plugin docs](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images) for the full details of how to customize the behavior, and read on to learn how this starter is currently setup for the social images.
+
 #### Update template HTML
 
-HTML can be changed in `_generate/social-previews.njk`
+HTML can be changed in `_generate/socialtemplate.njk` - be sure to leave the `<style>` block and the template tag within so that the plugin can insert your styles.
+
+The only requirement for the generator to work is to keep an `<h1>` to populate with the content title, but the rest of the template is up to you!
 
 #### Update template style
 
-An isolated, slimmed down stylesheet is created for the template: `sass/social-previews.scss`
+There are two options:
+
+1. Select a different theme to use from the plugin's [predefined theme options](https://github.com/5t3ph/eleventy-plugin-social-images/tree/main/themes) and amend the `social-images` script to set the `--theme` option
+2. Create a custom stylesheet (such as social.scss) and add the included `build:sass-social` script at the end of the `build:sass` command
+
+If choosing to create your own styles for option #2,
 
 #### Change included pages OR available data
 
-Adjust the collections loop in `_generate/pagesjson.liquid`
+Adjust the collections loop in `_generate/pagesjson.njk`, but keep the defined keys of `title` and `imgName`.
 
 ## Prism Syntax Highlighting
 
@@ -189,10 +198,6 @@ Extends the default slug function to also:
 
 - remove emojis
 - expand list of characters to remove
-
-### Filter: `jsonTitle`
-
-Used in `_generate/pagesjson.liquid` to ensure titles are escaped, and also applies non-breaking spaces to the last three words to prevent orphans in preview images.
 
 ## VSCode Tips
 

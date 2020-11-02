@@ -1,3 +1,4 @@
+const socialImages = require("@11tyrocks/eleventy-plugin-social-images");
 const emojiRegex = require("emoji-regex");
 const slugify = require("slugify");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -7,6 +8,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const packageVersion = require("./package.json").version;
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(socialImages);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
 
@@ -34,15 +36,6 @@ module.exports = function (eleventyConfig) {
       replacement: "-",
       remove: /[*+~·,()'"`´%!?¿:@\/]/g,
     });
-  });
-
-  eleventyConfig.addFilter("jsonTitle", (str) => {
-    if (!str) {
-      return;
-    }
-    let title = str.replace(/((.*)\s(.*)\s(.*))$/g, "$2&nbsp;$3&nbsp;$4");
-    title = title.replace(/"(.*)"/g, '\\"$1\\"');
-    return title;
   });
 
   /* Markdown Overrides */
