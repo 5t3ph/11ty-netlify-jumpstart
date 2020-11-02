@@ -13,7 +13,9 @@ This jumpstart is intended to be _just enough_ to be a functional site/blog usin
 
 Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Github](https://github.com/5t3ph), [CodePen](https://codepen.com/5t3ph), and [DEV](https://dev.to/5t3ph). You may know me as the author of [ModernCSS.dev](https://moderncss.dev) or the creator of [StyleStage.dev](https://stylestage.dev). I can also be found on [egghead as an instructor](https://egghead.io/instructors/stephanie-eckles?af=2s65ms).
 
-I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to JAMstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
+> Check out my extended collection of Eleventy resources available on [11ty.Rocks](https://11ty.rocks)!
+
+I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to Jamstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
 
 ### Jump to:
 
