@@ -164,7 +164,7 @@ There are two options:
 1. Select a different theme to use from the plugin's [predefined theme options](https://github.com/5t3ph/eleventy-plugin-social-images/tree/main/themes) and amend the `social-images` script to set the `--theme` option
 2. Create a custom stylesheet (such as social.scss) and add the included `build:sass-social` script at the end of the `build:sass` command
 
-If choosing to create your own styles for option #2,
+If choosing to create your own styles for option #2, the CSS will be output in `social/style.css` with provided stubbed out script. You will need to add this as the value for the `--stylesPath` option within the `social-images` script to ensure your custom styles are used.
 
 #### Change included pages OR available data
 
