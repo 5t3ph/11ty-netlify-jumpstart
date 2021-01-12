@@ -7,7 +7,7 @@ Visit [11ty-netlify-jumpstart.netlify.app](https://11ty-netlify-jumpstart.netlif
 ## Quick Start
 
 1. [Generate a repo from this template](https://github.com/5t3ph/11ty-netlify-jumpstart/generate)
-   which will copy this project into your own new repo.
+   which will copy this project into your own new repo. You have to be signed in to your Github account for this.
 
 1. Once cloned, run `npm install` to install 11ty and other dependencies. Then run `npm start` to run both 11ty and sass in watch
    mode. Use `npm run build` to run a production version, which will also generate social share
