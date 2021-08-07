@@ -1,3 +1,5 @@
+@use "theme" as *;
+
 $tdbc-typography-variants: h1, h2, h3, h4;
 
 @each $type in $tdbc-typography-variants {

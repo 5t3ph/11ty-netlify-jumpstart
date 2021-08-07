@@ -236,11 +236,13 @@ rules:
         - else
         - error
         - for
+        - forward
         - function
         - include
         - if
         - mixin
         - return
+        - use
         - warn
   # Disallow "@extend" in scss.
   # http://csswizardry.com/2016/02/mixins-better-for-performance/
