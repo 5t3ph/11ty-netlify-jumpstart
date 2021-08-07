@@ -1,6 +1,6 @@
 $tdbc-color-primary: #171392 !default;
 $tdbc-color-secondary: #db0a76 !default;
-$tdbc-color-background: #f9f9f9;
+$tdbc-color-background: #f9f9f9 !default;
 
 $tdbc-brand-colors: (
   "primary": $tdbc-color-primary,
@@ -35,7 +35,7 @@ $tdbc-button-variants: "primary", "secondary", "light", "gray" !default;
 $tdbc-link-color: tdbc-color("primary") !default;
 $tdbc-border-radius: 8px !default;
 
-$tdbc-font-family: "Baloo 2", sans-serif;
+$tdbc-font-family: "Baloo 2", sans-serif !default;
 $tdbc-strong-font-weight: 500 !default;
 $tdbc-h1-font-size: 4.2rem !default;
 $tdbc-h2-font-size: 3.15rem !default;

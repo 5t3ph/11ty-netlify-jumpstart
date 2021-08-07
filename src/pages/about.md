@@ -117,7 +117,7 @@ The only notable differences are:
 
 ### Fonts
 
-The default font is [Baloo 2](https://fonts.google.com/specimen/Baloo+2) and is locally hosted with files in `fonts/`. If you swap to a different font, be sure to remove the font files as well as the `@font-face` rules at the top of `sass/style.scss`, and update the `$tdbc-font-family` Sass variable.
+The default font is [Baloo 2](https://fonts.google.com/specimen/Baloo+2) and is locally hosted with files in `fonts/`. If you swap to a different font, be sure to remove the font files as well as the `@font-face` rules at the top of `sass/_fonts.scss`, and update the `$tdbc-font-family` Sass variable.
 
 ## Anchor Links
 
