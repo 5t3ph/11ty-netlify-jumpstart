@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "theme" as *;
+
 // stylelint-disable-next-line selector-max-id, selector-max-specificity
 #tdbc-siteid {
   font-size: $tdbc-h3-font-size;
@@ -35,7 +38,7 @@
   }
 
   a:not(.tdbc-button):focus {
-    border-radius: $tdbc-border-radius/2;
+    border-radius: math.div($tdbc-border-radius, 2);
     outline-color: transparent;
     outline-style: solid;
     box-shadow: 0 0 1px 2px tdbc-color("light");
