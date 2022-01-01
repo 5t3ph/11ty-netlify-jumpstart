@@ -18,7 +18,7 @@ Visit [11ty-netlify-jumpstart.netlify.app](https://11ty-netlify-jumpstart.netlif
 1. Review the [styling documentation](https://5t3ph.github.io/html-sass-jumpstart/) for the included minimal
    Sass framework, particularly the theme variables, to quickly customize the starter.
 
-1. Edit `_includes/home.njk` to change the home page - including changing the template type if desired -
+1. Edit `src/index.njk` to change the home page - including changing the template type if desired -
    and then create content within `_pages` using any templating format you prefer to add content.
 
 1. Check out the [About page](https://11ty-netlify-jumpstart.netlify.app/about/) for expanded details on included features of this starter.

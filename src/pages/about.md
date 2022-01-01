@@ -55,9 +55,9 @@ The `URL` value is then available via the global data described previously, and 
 
 ## Template Languages Used
 
-Page templates are created as Nunjucks (.njk), and feature are added that expect Markdown for most page content.
+Page templates are created as Nunjucks (`.njk`), and feature are added that expect Markdown for most page content.
 
-The home page - `_includes/home.njk` - is set to process first as Markdown followed by Nunjucks. This allows mixing HTML with Markdown, with benefits being code syntax highlighting and ability to include classes on HTML elements. This functionality is provided by the `templateEngineOverride: md, njk` in the frontmatter.
+The home page - `src/index.njk` - is set to process first as Markdown followed by Nunjucks. This allows mixing HTML with Markdown, with benefits being code syntax highlighting and ability to include classes on HTML elements. This functionality is provided by the `templateEngineOverride: md, njk` in the frontmatter.
 
 A unique case uses Nunjucks to create the `json` that is used to generate the [social share preview images](#social-share-preview-images).
 
@@ -65,15 +65,15 @@ Review the list of [available templating languages](https://www.11ty.dev/docs/la
 
 ## Layout Hierarchy and Features
 
-There are two layouts + a base for those, and one partial included.
+There are two layouts and one partial included.
 
-The `base.njk` layout receives both the `home.njk` layout and the `page.njk` layout.
+**New in v1.1.0** - layouts are customized to be located in `src/_layouts`.
 
-`base.njk` includes the standard HTML boilerplate including meta and "og" tags in `<head>`.
+- `_layouts/base.njk` includes the standard HTML boilerplate including meta and "og" tags in `<head>`.
 
-`page.njk` includes the `sitenav.njk` partial.
+- `_layouts/page.njk` includes the `sitenav.njk` partial and chains up to `base`
 
-`home.njk` includes a loop that will create "cards" for everything in `collections.pages`.
+The `src/index.njk` template chains to the `base` layout and includes a loop that will create "cards" for everything in `collections.pages`.
 
 ## Expected Frontmatter
 
@@ -153,13 +153,13 @@ Any changes made can be previewed by running the build command and reviewing the
 
 [Review the plugin docs](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images) for the full details of how to customize the behavior, and read on to learn how this starter is currently setup for the social images.
 
-#### Update template HTML
+#### Update social image template HTML
 
 HTML can be changed in `_generate/socialtemplate.njk` - be sure to leave the `<style>` block and the template tag within so that the plugin can insert your styles.
 
 The only requirement for the generator to work is to keep an `<h1>` to populate with the content title, but the rest of the template is up to you!
 
-#### Update template style
+#### Update social image template style
 
 There are two options:
 
@@ -184,9 +184,9 @@ Or, remove the plugin if you are not in need of code highlighting.
 
 ### Overrides
 
-**Input directory**: `src`
-
-**Output directory**: `public`
+- **Input directory**: `src`
+- **Output directory**: `public`
+- **Layout directory**: `_layouts`
 
 Also, `markdownLibrary` is extended to add the `markdownItAnchor` plugin for [anchor links](#anchor-links).
 
@@ -196,10 +196,7 @@ Returns the current `YYYY` year, used by the footer copyright.
 
 ### Filter: `slug`
 
-Extends the default slug function to also:
-
-- remove emojis
-- expand list of characters to remove
+Makes the default `slug` function more strict to ensure things like excluding emojis and enforcing lowercase.
 
 ## VSCode Tips
 

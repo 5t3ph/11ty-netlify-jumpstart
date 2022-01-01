@@ -1,10 +1,14 @@
+// 11ty Plugins
 const socialImages = require("@11tyrocks/eleventy-plugin-social-images");
-const emojiRegex = require("emoji-regex");
-const slugify = require("slugify");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
+// Helper packages
+const slugify = require("slugify");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+
+// Local utilities/data
 const packageVersion = require("./package.json").version;
 
 module.exports = function (eleventyConfig) {
@@ -27,14 +31,10 @@ module.exports = function (eleventyConfig) {
       return;
     }
 
-    const regex = emojiRegex();
-    // Remove Emoji first
-    let string = str.replace(regex, "");
-
-    return slugify(string, {
+    return slugify(str, {
       lower: true,
-      replacement: "-",
-      remove: /[*+~·,()'"`´%!?¿:@\/]/g,
+      strict: true,
+      remove: /["]/g,
     });
   });
 
@@ -47,12 +47,12 @@ module.exports = function (eleventyConfig) {
       space: false,
     }),
     level: [1, 2, 3],
-    slugify: (s) =>
-      s
-        .trim()
-        .toLowerCase()
-        .replace(/[\s+~\/]/g, "-")
-        .replace(/[().`,%·'"!?¿:@*]/g, ""),
+    slugify: (str) =>
+      slugify(str, {
+        lower: true,
+        strict: true,
+        remove: /["]/g,
+      }),
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -61,6 +61,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src",
       output: "public",
+      layouts: "_layouts",
     },
   };
 };
