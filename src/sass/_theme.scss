@@ -16,7 +16,7 @@ $tdbc-colors: map-merge(
     "text": $tdbc-color-body,
     "background": $tdbc-color-background,
     "light": #fff,
-    "dark": rgba(black, 0.87),
+    "dark": rgba(0 0 0 / 87%),
     "gray": $tdbc-color-gray,
   )
 );

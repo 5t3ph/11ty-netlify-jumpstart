@@ -2,7 +2,6 @@ extends:
   - stylelint-config-standard
   - stylelint-config-prettier
 plugins:
-  - stylelint-selector-bem-pattern
   - stylelint-scss
   - stylelint-order
 rules:
@@ -207,7 +206,7 @@ rules:
     - visibility
     - will-change
     - z-index
-  declaration-property-unit-whitelist:
+  declaration-property-unit-allowed-list:
     font-size:
       - "rem"
       - "em"
@@ -249,7 +248,7 @@ rules:
   # http://vanseodesign.com/css/sass-mixin-or-extend/
   # Besides performance, @extend actually *changes* the selector precedence by creating a compound
   # selector, which can lead to ambiguous results.
-  at-rule-blacklist:
+  at-rule-disallowed-list:
     - extend
   # Extremely useful for typos, and anything emergent can be ignored by this rule
   property-no-unknown:
@@ -282,7 +281,7 @@ rules:
   function-url-no-scheme-relative: true
   # TODO: and FIXME: warnings are super useful because they remind us that we should address these
   # within our codebase
-  comment-word-blacklist:
+  comment-word-disallowed-list:
     - - /^TODO:/
       - /^FIXME:/
     - severity: warning
@@ -309,18 +308,6 @@ rules:
     - ignoreAtRules:
         - if
         - else
-
-  # We use Harry Roberts' BEM dialect as our preferred way to format classes.
-  # See: http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
-  # See: https://github.com/postcss/postcss-bem-linter/blob/c59db3f/lib/preset-patterns.js#L39
-  plugin/selector-bem-pattern:
-    componentName: ^[a-z]+(?:-[a-z]+)*$
-    # <namespace>-<block>__<element>*--<modifier>*[<attribute>]*
-    componentSelectors: ^\.tdbc-{componentName}(?:__[a-z]+(?:-[a-z]+)*)*(?:--[a-z]+(?:-[a-z]+)*)*(?:\[.+\])*$
-    ignoreSelectors:
-      - ^fieldset
-      - ^\[aria\-disabled=(?:.+)\]
-      - ^img
 
   # SCSS naming patterns, just like our CSS conventions above.
   # (note for $-vars we use a leading underscore for "private" variables)
