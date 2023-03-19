@@ -3,8 +3,6 @@ node_modules
 
 # build artefacts
 public
-src/css
-social
 
 # secrets and errors
 .env
@@ -15,3 +13,6 @@ social
 
 #IDE
 .idea
+
+# Local Netlify folder
+.netlify

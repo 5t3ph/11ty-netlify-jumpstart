@@ -2,12 +2,11 @@
 <html lang="en">
 {%- set pageTitle %}{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
 {%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}{% endset -%}
-{%- set pageSocialImg %}{{ meta.url }}/previews/{% if title %}{{ title | slug }}{% else %}home{% endif %}.png{% endset -%}
   <head>
     <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content="eleventy" />
+    <meta name="generator" content="{{ eleventy.generator }}" />
     <title>{{pageTitle}}</title>
     <meta
       name="description"
@@ -15,7 +14,7 @@
     />
     <link rel="icon" href="{{ '/favicon.png' | url }}" />
     <link href="{{ '/css/style.css' | url }}" rel="stylesheet" />
-    <meta name="twitter:card" content="summary_large_image" />
+
     {% if meta.twitterUsername %}
     <meta name="twitter:creator" content="@{{ meta.twitterUsername }}" />
     {% endif %}
@@ -36,8 +35,9 @@
       name="og:description"
       content="{{pageDescription}}"
     />
-    <meta property="og:image" content="{{pageSocialImg}}" />
-    <meta name="twitter:image" content="{{pageSocialImg}}" />
+
+    <link rel="preload" href="/fonts/baloo-2-v1-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/baloo-2-v1-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <link
       rel="alternate"
@@ -52,7 +52,7 @@
     <footer class="tdbc-background--secondary">
       <div class="tdbc-container tdbc-text-align-center">
         <div class="tdbc-row tdbc-ink--light tdbc-mx-auto">
-          <p class="tdbc-mb-none">&copy; {% year %} {{ meta.siteName }} • {% packageVersion %}</p>
+          <p class="tdbc-mb-none">&copy; {% year %} {{ meta.siteName }} • {{ pkg.version }}</p>
           <span class="tdbc-row tdbc-row--center-content">
             <a
               href="https://twitter.com/{{ meta.twitterUsername }}/"

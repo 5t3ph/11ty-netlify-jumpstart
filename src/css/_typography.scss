@@ -11,19 +11,16 @@ $tdbc-typography-variants: h1, h2, h3, h4;
   }
 }
 
-// As of v0.3.0, `clamp` not well enough supported on mobile browsers for use
-// Due to build-in min/max Sass functions, requires `unquote()` to correctly
-// render as CSS min/max
 h1,
 .tdbc-h1 {
   font-size: $tdbc-h1-font-size;
-  font-size: unquote("min(max(3rem, 5vw), #{$tdbc-h1-font-size})");
+  font-size: clamp(3rem, 5vw + 1rem, #{$tdbc-h1-font-size});
 }
 
 h2,
 .tdbc-h2 {
   font-size: $tdbc-h2-font-size;
-  font-size: unquote("min(max(2.5rem, 5vw), #{$tdbc-h2-font-size})");
+  font-size: clamp(2.5rem, 5vw + 1rem, #{$tdbc-h2-font-size});
 }
 
 h3,

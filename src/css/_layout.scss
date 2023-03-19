@@ -1,6 +1,5 @@
 @use "theme" as *;
 
-// stylelint-disable-next-line selector-max-type
 body {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,6 @@ body {
   font-family: $tdbc-font-family;
 }
 
-// stylelint-disable selector-max-type, selector-no-qualifying-type
 main,
 main.tdbc-container {
   padding-top: 5vh;
@@ -29,7 +27,6 @@ article {
     margin-left: auto;
   }
 }
-// stylelint-enable
 
 .tdbc-container {
   display: flex;
@@ -47,7 +44,6 @@ article {
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 }
 
-// stylelint-disable-next-line selector-no-qualifying-type, selector-max-type
 ul.tdbc-column-container {
   padding-left: 0;
 }
@@ -60,7 +56,6 @@ ul.tdbc-column-container {
     padding-bottom: 10vh;
   }
 
-  // stylelint-disable-next-line selector-max-universal
   *:last-child {
     margin-bottom: 0;
   }
@@ -93,7 +88,6 @@ ul.tdbc-column-container {
   }
 }
 
-// stylelint-disable-next-line selector-max-type
 hr {
   margin-top: 4rem;
   margin-bottom: 4rem;

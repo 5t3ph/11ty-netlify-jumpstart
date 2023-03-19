@@ -15,8 +15,6 @@ Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Gith
 
 > Check out my extended collection of Eleventy resources available on [11ty.Rocks](https://11ty.rocks)!
 
-I spent a decade creating WordPress themes and plugins then flipped to product development + leading development of a multi-platform enterprise design system. My intro to Jamstack was with Gatsby, but 11ty fills a special place that is so needed for truly static sites. I'm in love, and I think you will be, too.
-
 ### Jump to:
 
 - [Global Site Data and .env](#global-site-data-and-env)
@@ -30,7 +28,6 @@ I spent a decade creating WordPress themes and plugins then flipped to product d
 - [Anchor links](#anchor-links)
 - [Sitemap](#sitemap)
 - [RSS Feed](#rss-feed)
-- [Social Share Preview Images](#social-share-preview-images)
 - [Prism Syntax Highlighting](#prism-syntax-highlighting)
 - [.eleventy.js Config Features](#eleventyjs-config-features)
 - [VSCode Tips](#vscode-tips)
@@ -42,7 +39,7 @@ As noted in the [Quick Start](/#quickstart), there are global site data variable
 Those include:
 
 - `url` - should remain unchanged, reads from the single expected `.env` value of `URL`
-- `siteName` - your "brand" if you will, appended to the `<title>` tag, shown in the `sitenav`, displayed in the "hero" for the `home` layout, in the footer by the copyright, as the "credit" for social share images, and as the identifier throughout the RSS feed
+- `siteName` - your "brand" if you will, appended to the `<title>` tag, shown in the `sitenav`, displayed in the "hero" for the `home` layout, in the footer by the copyright, and as the identifier throughout the RSS feed
 - `siteDescription` - used in the "description" meta tag, and below the `siteName` on the `home` layout
 - `authorName` - Used in the RSS feed, intended to be your full name
 - `twitterUsername` - without the "@", this value is used for the Twitter meta tags, and for the URL of the icon link in the footer
@@ -51,15 +48,13 @@ Those include:
 
 See `.env-sample` for the single expected value of `URL` which should be set to your localhost. The sample uses the default 11ty port, so you can simply rename the file to `.env` if you haven't changed the port.
 
-The `URL` value is then available via the global data described previously, and can be used in templates with `meta.url`. You can see this used for the RSS feed and sitemap as well as meta tag links to the social share preview images to create the absolute URLs.
+The `URL` value is then available via the global data described previously, and can be used in templates with `meta.url`. You can see this used for the RSS feed and sitemap to create the absolute URLs.
 
 ## Template Languages Used
 
 Page templates are created as Nunjucks (`.njk`), and feature are added that expect Markdown for most page content.
 
 The home page - `src/index.njk` - is set to process first as Markdown followed by Nunjucks. This allows mixing HTML with Markdown, with benefits being code syntax highlighting and ability to include classes on HTML elements. This functionality is provided by the `templateEngineOverride: md, njk` in the frontmatter.
-
-A unique case uses Nunjucks to create the `json` that is used to generate the [social share preview images](#social-share-preview-images).
 
 Review the list of [available templating languages](https://www.11ty.dev/docs/languages/) in the 11ty docs.
 
@@ -79,8 +74,10 @@ The `src/index.njk` template chains to the `base` layout and includes a loop tha
 
 There are only two fields expected:
 
-- `title` - essentially required, by default is used in the page `<title>`, in the layout "hero", in social share preview images, and in social share meta tags.
-- `description` - optional, by default appears below the title for the `page` template and is used as for the "description" meta tag and social share meta tag descriptions.
+- `title` - essentially required, by default is used in the page `<title>`, and in the layout "hero".
+- `description` - optional, by default appears below the title for the `page` template and is used as for the "description" meta tag.
+
+> If you want typed front matter, consider my plugin for [collection schemas](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-collection-schemas)
 
 ## Permalink Style
 
@@ -100,9 +97,9 @@ Creating an `img` directory and keeping the pass-through directive will make ima
 
 ## Linting
 
-For Sass, [stylelint](https://stylelint.io/) is included. If you want to keep it, you may want to do a find/replace for `tdbc` to the prefix of your choice. If not, you'll want to remove the related files at the project root as well as the related items in the `package.json`.
-
 A `prettier` config is included, with the only update being `printWidth: 100`.
+
+> As of v2.0.0, stylelint was removed.
 
 ## Sass Framework
 
@@ -114,6 +111,8 @@ The only notable differences are:
 1. `tdbc-anchor` - styles for the `#` anchor that appears next to page headings ([or turn that feature off](#anchor-links)) can be adjusted in `sass/_utilities`
 1. Additional `article`-scoped styling for typography as it appears on `pages`
 1. A theme for the [`prism` syntax highlighting](#prism-syntax-highlighting) for code blocks. You can adjust or replace the theme in `sass/_prism`.
+
+Additionally, the Sass in this starter is processed using LightningCSS by way of my plugin: [@11tyrocks/eleventy-plugin-sass-lightningcss](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-sass-lightningcss). This affords you access to some super modern CSS features, if you choose to use them.
 
 ### Fonts
 
@@ -138,39 +137,6 @@ To exclude non-page or non-public content from the sitemap, include `eleventyExc
 An RSS feed is included, and output at `[siteurl]/feed/feed.xml`.
 
 If publishing from Netlify, the included `netlify.toml` file will create a redirect so that the feed becomes available at `[siteurl]/feed`.
-
-### Social Share Preview Images
-
-Upon use of the build command, social share preview images are generated for each page + the home page, and available in `public/previews/[title-as-slug].png`.
-
-Here's an example of the default template:
-
-![default social share preview image template](/previews/hello-world.png)
-
-As of v0.5.0, these images now use my Eleventy plugin - `@11tyrocks/eleventy-plugin-social-images` - with the default blue theme and a customized template.
-
-Any changes made can be previewed by running the build command and reviewing the contents of `public/previews/`.
-
-[Review the plugin docs](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images) for the full details of how to customize the behavior, and read on to learn how this starter is currently setup for the social images.
-
-#### Update social image template HTML
-
-HTML can be changed in `_generate/socialtemplate.njk` - be sure to leave the `<style>` block and the template tag within so that the plugin can insert your styles.
-
-The only requirement for the generator to work is to keep an `<h1>` to populate with the content title, but the rest of the template is up to you!
-
-#### Update social image template style
-
-There are two options:
-
-1. Select a different theme to use from the plugin's [predefined theme options](https://github.com/5t3ph/eleventy-plugin-social-images/tree/main/themes) and amend the `social-images` script to set the `--theme` option
-2. Create a custom stylesheet (such as social.scss) and add the included `build:sass-social` script at the end of the `build:sass` command
-
-If choosing to create your own styles for option #2, the CSS will be output in `social/style.css` with provided stubbed out script. You will need to add this as the value for the `--stylesPath` option within the `social-images` script to ensure your custom styles are used.
-
-#### Change included pages OR available data
-
-Adjust the collections loop in `_generate/pagesjson.njk`, but keep the defined keys of `title` and `imgName`.
 
 ## Prism Syntax Highlighting
 

@@ -16,7 +16,6 @@
     text-decoration: none;
   }
 
-  /* stylelint-disable selector-max-type, selector-no-qualifying-type */
   a.tdbc-card__title {
     &::before {
       position: absolute;
@@ -75,7 +74,6 @@
     max-height: 10em;
     border-radius: $tdbc-border-radius $tdbc-border-radius 0 0;
   }
-  // stylelint-enable
 
   &--outlined {
     border: 1px solid scale-color($tdbc-color-gray, $lightness: 50%);
